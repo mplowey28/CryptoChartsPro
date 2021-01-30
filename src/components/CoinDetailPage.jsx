@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { WatchListContext } from "../context/watchListContext";
 import Chart from "./Chart";
 import CoinData from "./CoinData";
 import base from "../API/API";
+import { CgCloseR } from "react-icons/cg";
 
-const CoinDetailPage = () => {
-  const { id } = useParams();
+const CoinDetailPage = ({ id }) => {
   const [coinData, setCoinData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const { deleteCoin } = useContext(WatchListContext);
 
   const formatData = (data) => {
     return data.map((el) => {
@@ -95,7 +96,7 @@ const CoinDetailPage = () => {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const renderData = () => {
     if (isLoading) {
@@ -103,6 +104,7 @@ const CoinDetailPage = () => {
     }
     return (
       <div className="grid grid-rows-3 bg-white bg-opacity-30 border border-gray-800 rounded shadow">
+        <CgCloseR onClick={() => deleteCoin(id)} />
         <Chart data={coinData} />
         <CoinData data={coinData.detail} />
       </div>

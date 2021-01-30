@@ -9,10 +9,11 @@ const Sidebar = () => {
   const showSidebar = () => setSideBar(!sidebar);
   return (
     <>
-      <div className="bg-gray-700  h-10 flex justify-start items-center w-screen">
+      <div className="bg-gray-700  h-10 flex justify-between items-center w-screen">
         <Link to="#" className="ml-4 text-4xl bg-transparent">
           <FaArrowRight onClick={showSidebar} />
         </Link>
+        <h1 className={"mr-4"}>CryptoChartsPro</h1>
       </div>
       <nav
         className={
@@ -22,7 +23,7 @@ const Sidebar = () => {
         }
       >
         <ul className="w-full">
-          <li className="bg-gray-700  h-10 flex justify-start items-center">
+          <li className="bg-gray-700  h-10 flex justify-between items-center">
             <Link to="#" className="ml-4 text-4xl bg-transparent">
               <FaArrowLeft onClick={showSidebar} />
             </Link>

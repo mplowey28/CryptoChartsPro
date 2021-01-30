@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import { WatchListContextProvider } from "./context/watchListContext";
-import CoinDetailPage from "./components/CoinDetailPage.jsx";
+import CoinDetailPageContainer from "./components/CoinDetailPageContainer";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <WatchListContextProvider>
         <Router>
           <Sidebar />
-          <Route path="/:id" component={CoinDetailPage}></Route>
+          <Route component={CoinDetailPageContainer}></Route>
         </Router>
       </WatchListContextProvider>
     </div>
