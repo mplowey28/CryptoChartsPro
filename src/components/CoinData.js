@@ -2,7 +2,7 @@ const CoinData = ({ data }) => {
   const renderData = () => {
     if (data) {
       return (
-        <div className="h-2/4 my-20">
+        <div className="">
           <div>
             <div>
               <span>Market Cap</span>
@@ -32,7 +32,7 @@ const CoinData = ({ data }) => {
             </div>
             <hr />
             <div>
-              <span>low (24h)</span>
+              <span>Low (24h)</span>
               <span>{data.low_24h}</span>
             </div>
           </div>
