@@ -7,10 +7,10 @@ const Coin = ({ coin }) => {
   return (
     <li
       onClick={() => addCoin(coin)}
-      className="bg-white bg-opacity-20 border border-gray-800 rounded shadow mx-2 mb-2 p-2 w-56 hover:opacity-40 cursor-pointer"
+      className="bg-black bg-opacity-20 border border-gray-500 rounded shadow mb-2 p-2 w-full active:opacity-40 hover:opacity-40 cursor-pointer"
     >
-      <div className="flex items-center justify-between">
-        <img className="w-10 mr-1" src={coin.image} alt="" />
+      <div className="flex items-center justify-center my-1">
+        <img className="w-10 mr-4" src={coin.image} alt="" />
         {coin.name}
       </div>
       <div className="w-full text-center text-3xl">

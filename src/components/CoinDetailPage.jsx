@@ -105,8 +105,10 @@ const CoinDetailPage = ({ id }) => {
     }
     return (
       <IconContext.Provider value={{ color: "red", size: "50px" }}>
-        <div className="grid grid-rows-3 bg-white bg-opacity-30 border border-gray-800 rounded shadow">
-          <CgCloseR onClick={() => deleteCoin(id)} />
+        <div className="flex flex-col bg-black bg-opacity-30 border border-gray-500 rounded shadow m-2">
+          <div className={"flex mt-2 mx-2 justify-end"}>
+            <CgCloseR onClick={() => deleteCoin(id)} />
+          </div>
           <Chart data={coinData} />
           <CoinData data={coinData.detail} />
         </div>

@@ -18,7 +18,7 @@ export const historyOptions = {
       {
         ticks: {
           fontColor: "white",
-          fontSize: 12,
+          fontSize: 10,
           beginAtZero: true,
         },
       },
@@ -29,7 +29,7 @@ export const historyOptions = {
         distribution: "linear",
         ticks: {
           fontColor: "white",
-          fontSize: 12,
+          fontSize: 10,
         },
       },
     ],

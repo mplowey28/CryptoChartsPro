@@ -5,7 +5,7 @@ import CoinDetailPage from "./CoinDetailPage";
 const CoinDetailPageContainer = () => {
   const { watchList } = useContext(WatchListContext);
   return (
-    <ul>
+    <ul className="flex-1 bg-gray-900 w-full h-full">
       {watchList.map((coin) => {
         return <CoinDetailPage key={coin} id={coin} />;
       })}

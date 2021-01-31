@@ -50,7 +50,7 @@ const Chart = ({ data }) => {
               backgroundColor: "rgba(96, 165, 250, 0.5)",
               borderColor: "rgba(96, 165, 250)",
               pointRadius: 0,
-              borderWidth: 3,
+              borderWidth: 2,
             },
           ],
         },
@@ -62,20 +62,20 @@ const Chart = ({ data }) => {
   const renderPrice = () => {
     if (detail) {
       return (
-        <div className="grid grid-cols-3 gap-x-1">
-          <div className="flex items-center justify-center py-4 ml-2 bg-white bg-opacity-20 border border-gray-100 rounded shadow text-4xl">
+        <div className="flex flex-1 flex-col m-2">
+          <div className="flex mb-2 py-2 items-center justify-center bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl">
             <img className="w-10 mr-2" src={detail.image} alt="" />
             {detail.name}
           </div>
-          <div className="bg-white bg-opacity-20 border border-gray-100 rounded shadow text-4xl flex align-center justify-center items-center">
+          <div className="mb-2 py-2 bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl flex align-center justify-center items-center">
             ${detail.current_price.toFixed(2)}
           </div>
 
           <span
             className={
               detail.price_change_24h < 0
-                ? "text-red-500 mr-2 bg-white bg-opacity-20 border border-gray-100 rounded shadow text-4xl flex align-center justify-center items-center"
-                : "text-green-500 mr-2 bg-white bg-opacity-20 border border-gray-100  rounded shadow text-4xl flex align-center justify-center items-center"
+                ? " text-red-500  bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl flex align-center justify-center items-center"
+                : "text-green-500  bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl flex align-center justify-center items-center"
             }
           >
             {detail.price_change_24h < 0 ? (
@@ -91,50 +91,50 @@ const Chart = ({ data }) => {
   };
 
   return (
-    <div className="grid grid-rows-5 my-2 row-start-1 row-span-2">
-      <div className="row-start-1 row-span-1">{renderPrice()}</div>
-      <div className="row-start-2 row-span-3">
+    <div className="flex flex-col">
+      <div>{renderPrice()}</div>
+      <div className=" py-2 mb-2 mx-2 bg-black bg-opacity-20 border border-gray-500 rounded shadow">
         <canvas ref={chartRef}></canvas>
       </div>
-      <div className="grid grid-cols-7 gap-x-1 row-start-5 mx-2">
+      <div className="flex align-center justify-around">
         <button
-          className="bg-white bg-opacity-20 border border-gray-100 rounded shadow hover:opacity-40"
+          className="w-10 px-1 bg-black bg-opacity-20 border border-gray-500 rounded shadow hover:opacity-40"
           onClick={() => setTimeSpan("24h")}
         >
           24h
         </button>
         <button
-          className="bg-white bg-opacity-20 border border-gray-100 rounded shadow hover:opacity-40"
+          className="w-10 px-1 bg-black bg-opacity-20 border border-gray-500 rounded shadow hover:opacity-40"
           onClick={() => setTimeSpan("7d")}
         >
           7d
         </button>
         <button
-          className="bg-white bg-opacity-20 border border-gray-100 rounded shadow hover:opacity-40"
+          className="w-10 px-1 bg-black bg-opacity-20 border border-gray-500 rounded shadow hover:opacity-40"
           onClick={() => setTimeSpan("1m")}
         >
           1m
         </button>
         <button
-          className="bg-white bg-opacity-20 border border-gray-100 rounded shadow hover:opacity-40"
+          className="w-10 px-1 bg-black bg-opacity-20 border border-gray-500 rounded shadow hover:opacity-40"
           onClick={() => setTimeSpan("6m")}
         >
           6m
         </button>
         <button
-          className="bg-white bg-opacity-20 border border-gray-100 rounded shadow hover:opacity-40"
+          className=" w-10 px-1 bg-black bg-opacity-20 border border-gray-500 rounded shadow hover:opacity-40"
           onClick={() => setTimeSpan("1y")}
         >
           1y
         </button>
         <button
-          className="bg-white bg-opacity-20 border border-gray-100 rounded shadow hover:opacity-40"
+          className="w-10 px-1 bg-black bg-opacity-20 border border-gray-500 rounded shadow hover:opacity-40"
           onClick={() => setTimeSpan("5y")}
         >
           5y
         </button>
         <button
-          className="bg-white bg-opacity-20 border border-gray-100 rounded shadow hover:opacity-40"
+          className="w-10 px-1 bg-black bg-opacity-20 border border-gray-500 rounded shadow hover:opacity-40"
           onClick={() => setTimeSpan("10y")}
         >
           10y
