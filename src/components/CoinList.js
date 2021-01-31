@@ -26,7 +26,7 @@ const CoinList = () => {
       <div>Loading...</div>;
     }
     return (
-      <ul className="list-reset max-h-screen overflow-y-scroll px-4 md:px-0">
+      <ul className="list-reset max-h-screen overflow-y-scroll pt-4 px-4 md:px-0">
         {coins.map((coin) => {
           return <Coin key={coin.id} coin={coin} />;
         })}

@@ -4,6 +4,7 @@ import Chart from "./Chart";
 import CoinData from "./CoinData";
 import base from "../API/API";
 import { CgCloseR } from "react-icons/cg";
+import { IconContext } from "react-icons";
 
 const CoinDetailPage = ({ id }) => {
   const [coinData, setCoinData] = useState({});
@@ -103,11 +104,13 @@ const CoinDetailPage = ({ id }) => {
       return <div>Loading....</div>;
     }
     return (
-      <div className="grid grid-rows-3 bg-white bg-opacity-30 border border-gray-800 rounded shadow">
-        <CgCloseR onClick={() => deleteCoin(id)} />
-        <Chart data={coinData} />
-        <CoinData data={coinData.detail} />
-      </div>
+      <IconContext.Provider value={{ color: "red", size: "50px" }}>
+        <div className="grid grid-rows-3 bg-white bg-opacity-30 border border-gray-800 rounded shadow">
+          <CgCloseR onClick={() => deleteCoin(id)} />
+          <Chart data={coinData} />
+          <CoinData data={coinData.detail} />
+        </div>
+      </IconContext.Provider>
     );
   };
 

@@ -9,7 +9,7 @@ const Sidebar = () => {
   const showSidebar = () => setSideBar(!sidebar);
   return (
     <>
-      <div className="bg-gray-700  h-10 flex justify-between items-center w-screen">
+      <div className="bg-gray-700  h-10 flex justify-between items-center w-screen border-b-4">
         <Link to="#" className="ml-4 text-4xl bg-transparent">
           <FaArrowRight onClick={showSidebar} />
         </Link>
@@ -23,7 +23,7 @@ const Sidebar = () => {
         }
       >
         <ul className="w-full">
-          <li className="bg-gray-700  h-10 flex justify-between items-center">
+          <li className="bg-gray-700  h-10 flex justify-between items-center border-b-4">
             <Link to="#" className="ml-4 text-4xl bg-transparent">
               <FaArrowLeft onClick={showSidebar} />
             </Link>
