@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
+import NumberFormat from "react-number-format";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import { WatchListContext } from "../context/watchListContext";
 
 const Coin = ({ coin }) => {
-  const { addCoin } = useContext(WatchListContext);
+  const { addCoin, toggleSideBar } = useContext(WatchListContext);
   return (
     <li
-      onClick={() => addCoin(coin)}
+      onClick={() => {
+        addCoin(coin);
+        toggleSideBar();
+      }}
       className="bg-black bg-opacity-20 border border-gray-500 rounded shadow mb-2 p-2 w-full active:opacity-40 hover:opacity-40 cursor-pointer"
     >
       <div className="flex items-center justify-center my-1">
@@ -14,7 +18,12 @@ const Coin = ({ coin }) => {
         {coin.name}
       </div>
       <div className="w-full text-center text-3xl">
-        ${coin.current_price.toFixed(2)}
+        <NumberFormat
+          value={coin.current_price.toFixed(2)}
+          displayType={"text"}
+          thousandSeparator={true}
+          prefix={"$"}
+        />
       </div>
       <span
         className={
@@ -28,7 +37,12 @@ const Coin = ({ coin }) => {
         ) : (
           <IoMdArrowDropup />
         )}
-        {coin.price_change_percentage_24h.toFixed(2)}%
+        <NumberFormat
+          value={coin.price_change_percentage_24h.toFixed(2)}
+          displayType={"text"}
+          thousandSeparator={true}
+          suffix={"%"}
+        />
       </span>
     </li>
   );

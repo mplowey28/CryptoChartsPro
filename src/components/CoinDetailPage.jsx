@@ -2,6 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import { WatchListContext } from "../context/watchListContext";
 import Chart from "./Chart";
 import CoinData from "./CoinData";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import base from "../API/API";
 import { CgCloseR } from "react-icons/cg";
 import { IconContext } from "react-icons";
@@ -48,7 +50,7 @@ const CoinDetailPage = ({ id }) => {
         base.get(`/coins/${id}/market_chart/`, {
           params: {
             vs_currency: "usd",
-            days: "30",
+            days: "31",
           },
         }),
         base.get(`/coins/${id}/market_chart/`, {
@@ -101,7 +103,17 @@ const CoinDetailPage = ({ id }) => {
 
   const renderData = () => {
     if (isLoading) {
-      return <div>Loading....</div>;
+      return (
+        <div className="flex self-center align-center justify-center mt-10">
+          <Loader
+            type="TailSpin"
+            color="white"
+            height={50}
+            width={50}
+            timeout={3000}
+          />
+        </div>
+      );
     }
     return (
       <IconContext.Provider value={{ color: "red", size: "50px" }}>

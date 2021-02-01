@@ -6,6 +6,7 @@ export const WatchListContextProvider = (props) => {
   const [watchList, setWatchList] = useState(
     JSON.parse(localStorage.getItem("watchList"))
   );
+  const [sideBar, setSideBar] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("watchList", JSON.stringify(watchList));
@@ -21,8 +22,12 @@ export const WatchListContextProvider = (props) => {
   const deleteCoin = (coin) =>
     setWatchList(watchList.filter((item) => item !== coin));
 
+  const toggleSideBar = () => setSideBar(!sideBar);
+
   return (
-    <WatchListContext.Provider value={{ watchList, addCoin, deleteCoin }}>
+    <WatchListContext.Provider
+      value={{ watchList, addCoin, deleteCoin, toggleSideBar, sideBar }}
+    >
       {props.children}
     </WatchListContext.Provider>
   );
