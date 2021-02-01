@@ -79,11 +79,11 @@ const Chart = ({ data }) => {
             }
           >
             {detail.price_change_24h < 0 ? (
-              <IoMdArrowDropdown />
+              <IoMdArrowDropdown color="rgba(239, 68, 68)" />
             ) : (
-              <IoMdArrowDropup />
+              <IoMdArrowDropup color="rgba(16, 185, 129)" />
             )}
-            {detail.price_change_24h.toFixed(2)}
+            ${detail.price_change_24h.toFixed(2)}
           </span>
         </div>
       );
