@@ -19,7 +19,7 @@ export const historyOptions = {
         ticks: {
           fontColor: "white",
           fontSize: 10,
-          beginAtZero: true,
+          beginAtZero: false,
         },
       },
     ],
