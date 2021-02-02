@@ -4,7 +4,7 @@ const CoinData = ({ data }) => {
   const renderData = () => {
     if (data) {
       return (
-        <div className="flex flex-col m-2 p-2 bg-black bg-opacity-20 border border-gray-500 rounded shadow">
+        <div className="flex flex-col m-2 p-2 bg-black bg-opacity-20 border border-gray-500 rounded shadow lg:w-1/4 lg:self-end">
           <div>
             <div className="flex justify-between">
               <span>Low (24h): </span>

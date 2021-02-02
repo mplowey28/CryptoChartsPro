@@ -5,7 +5,7 @@ import CoinDetailPageContainer from "./components/CoinDetailPageContainer";
 
 const App = () => {
   return (
-    <div className="bg-gray-700 flex flex-col h-screen">
+    <div className="bg-gray-900 flex flex-col h-screen">
       <WatchListContextProvider>
         <Router>
           <Sidebar />

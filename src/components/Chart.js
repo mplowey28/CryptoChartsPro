@@ -1,10 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import Chartjs from "chart.js";
 import NumberFormat from "react-number-format";
 import { historyOptions } from "../chartConfigs/chartConfigs";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
+import { WatchListContext } from "../context/watchListContext";
 
 const Chart = ({ data }) => {
+  const { sideBar } = useContext(WatchListContext);
+
   const chartRef = useRef();
   const {
     day,
@@ -63,7 +66,13 @@ const Chart = ({ data }) => {
   const renderPrice = () => {
     if (detail) {
       return (
-        <div className="flex flex-1 flex-col m-1 md:flex-row">
+        <div
+          className={
+            !sideBar
+              ? "flex flex-1 flex-col m-1 md:flex-row"
+              : "flex flex-1 flex-col m-1 "
+          }
+        >
           <div className="flex mb-2 py-2 items-center justify-center bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl md:flex-grow md:mx-1">
             <img className="w-10 mr-2" src={detail.image} alt="" />
             {detail.name}
@@ -80,8 +89,8 @@ const Chart = ({ data }) => {
           <span
             className={
               detail.price_change_24h < 0
-                ? " text-red-500  bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl flex align-center justify-center items-center md:flex-grow md:mx-1"
-                : "text-green-500  bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl flex align-center justify-center items-center md:flex-grow md:mx-1"
+                ? " text-red-500  bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl flex align-center justify-center items-center md:flex-grow md:mx-1 md:mb-2"
+                : "text-green-500  bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl flex align-center justify-center items-center md:flex-grow md:mx-1 md:mb-2"
             }
           >
             {detail.price_change_24h < 0 ? (

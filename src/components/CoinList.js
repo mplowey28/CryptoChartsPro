@@ -36,7 +36,7 @@ const CoinList = () => {
       </div>;
     }
     return (
-      <ul className="max-h-screen overflow-y-scroll pt-4 px-4">
+      <ul className="max-h-screen overflow-y-scroll pt-2 px-2 border border-gray-500 rounded">
         {coins.map((coin) => {
           return <Coin key={coin.id} coin={coin} />;
         })}
