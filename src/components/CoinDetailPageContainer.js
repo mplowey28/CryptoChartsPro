@@ -14,9 +14,13 @@ const CoinDetailPageContainer = () => {
           : "flex flex-col flex-grow bg-gray-900 w-full h-full justify-between md:w-3/5 md:self-end lg:w-3/4"
       }
     >
-      {watchList.map((coin) => {
-        return <CoinDetailPage key={coin} id={coin} />;
-      })}
+      {watchList.length > 0 ? (
+        watchList.map((coin) => {
+          return <CoinDetailPage key={coin} id={coin} />;
+        })
+      ) : (
+        <div className="flex flex-col flex-grow bg-gray-900 w-full h-full"></div>
+      )}
       <Footer />
     </ul>
   );

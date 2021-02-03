@@ -20,8 +20,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="flex flex-row justify-center align-middle">
-        <span dangerouslySetInnerHTML={{ __html: "&copy;" }} />
-        <h3> Matthew Plowey 2021</h3>
+        <h3> &copy; Matthew Plowey 2021</h3>
       </div>
     </div>
   );

@@ -60,6 +60,9 @@ const Chart = ({ data }) => {
         },
         options: { ...historyOptions },
       });
+      return () => {
+        chartIns.destroy();
+      };
     }
   });
 
@@ -117,7 +120,7 @@ const Chart = ({ data }) => {
       <div className=" py-2 mb-2 mx-2 bg-black bg-opacity-20 border border-gray-500 rounded shadow md:mx-2">
         <canvas ref={chartRef}></canvas>
       </div>
-      <div className="flex align-center justify-around md:justify-end">
+      <div className="flex align-center justify-around md:justify-end lg:mx-auto">
         <button
           className="w-10 px-1 bg-black bg-opacity-20 border border-gray-500 rounded shadow hover:opacity-40 md:mx-1"
           onClick={() => setTimeSpan("24h")}
