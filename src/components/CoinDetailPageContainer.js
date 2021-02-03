@@ -10,8 +10,8 @@ const CoinDetailPageContainer = () => {
     <ul
       className={
         !sideBar
-          ? "flex flex-col flex-grow bg-gray-900 w-full h-full overflow-y-scroll justify-between"
-          : "flex flex-col flex-grow bg-gray-900 w-full h-full overflow-y-scroll justify-between md:w-3/5 md:self-end lg:w-3/4"
+          ? "flex flex-col flex-grow bg-gray-900 w-full h-full overflow-auto justify-between"
+          : "flex flex-col flex-grow bg-gray-900 w-full h-full overflow-auto justify-between md:w-3/5 md:self-end lg:w-3/4"
       }
     >
       {watchList.length > 0 ? (

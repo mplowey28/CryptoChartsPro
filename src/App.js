@@ -5,7 +5,7 @@ import CoinDetailPageContainer from "./components/CoinDetailPageContainer";
 
 const App = () => {
   return (
-    <div className="bg-gray-900 flex flex-col h-screen overflow-y-scroll">
+    <div className="bg-gray-900 flex flex-col h-screen">
       <WatchListContextProvider>
         <Router>
           <Sidebar />

@@ -2,7 +2,7 @@ import { AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <div className="bottom-0 flex flex-col justify-center align-middle bg-gray-900 mt-4 py-2 w-full">
+    <div className="bottom-0 inline-block justify-center align-middle bg-gray-900 mt-4 py-2 w-full">
       <div className="flex flex-row justify-center align-middle">
         <a
           href="https://www.linkedin.com/in/matthew-plowey"
