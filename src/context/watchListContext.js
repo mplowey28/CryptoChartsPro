@@ -1,16 +1,10 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 
 export const WatchListContext = createContext();
 
 export const WatchListContextProvider = (props) => {
-  const [watchList, setWatchList] = useState(
-    JSON.parse(localStorage.getItem("watchList"))
-  );
-  const [sideBar, setSideBar] = useState(false);
-
-  useEffect(() => {
-    localStorage.setItem("watchList", JSON.stringify(watchList));
-  }, [watchList]);
+  const [watchList, setWatchList] = useState([]);
+  const [sideBar, setSideBar] = useState(true);
 
   const addCoin = (coin) => {
     if (!watchList.includes(coin.id)) {
