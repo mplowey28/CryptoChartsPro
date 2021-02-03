@@ -117,7 +117,7 @@ const CoinDetailPage = ({ id }) => {
     }
     return (
       <IconContext.Provider value={{ color: "red", size: "50px" }}>
-        <div className="flex flex-col bg-black bg-opacity-30 border border-gray-500 rounded shadow m-2">
+        <div className="flex flex-col flex-grow bg-black bg-opacity-30 border border-gray-500 rounded shadow m-2">
           <div className={"flex mt-2 mx-2 justify-end"}>
             <CgCloseR
               className="cursor-pointer"
