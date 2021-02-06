@@ -105,13 +105,7 @@ const CoinDetailPage = ({ id }) => {
     if (isLoading) {
       return (
         <div className="flex self-center align-center justify-center mt-10">
-          <Loader
-            type="TailSpin"
-            color="white"
-            height={50}
-            width={50}
-            timeout={3000}
-          />
+          <Loader type="TailSpin" color="white" height={50} width={50} />
         </div>
       );
     }
