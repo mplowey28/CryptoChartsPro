@@ -1,27 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { WatchListContext } from "../context/watchListContext";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import base from "../API/API";
 import Coin from "./Coin";
+import Search from "./Search";
 
 const CoinList = () => {
+  const { searchInput } = useContext(WatchListContext);
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const response = await base.get("/coins/markets", {
-        params: {
-          vs_currency: "usd",
-        },
-      });
-      setCoins(response.data);
-      setIsLoading(false);
+      if (searchInput) {
+        const response = await base.get("/coins/markets", {
+          params: {
+            vs_currency: "usd",
+            ids: `${searchInput}`,
+          },
+        });
+        setCoins(response.data);
+        setIsLoading(false);
+      } else {
+        const response = await base.get("/coins/markets", {
+          params: {
+            vs_currency: "usd",
+          },
+        });
+        setCoins(response.data);
+        setIsLoading(false);
+      }
     };
-
     fetchData();
-  }, []);
+  }, [searchInput]);
 
   const renderCoins = () => {
     if (isLoading) {
@@ -37,6 +50,7 @@ const CoinList = () => {
     }
     return (
       <ul className="max-h-screen overflow-y-scroll pt-2 px-2 border border-gray-500 rounded">
+        <Search />
         {coins.map((coin) => {
           return <Coin key={coin.id} coin={coin} />;
         })}
