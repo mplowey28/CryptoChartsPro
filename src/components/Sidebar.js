@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { WatchListContext } from "../context/watchListContext";
-import { Link } from "react-router-dom";
 import CoinList from "./CoinList";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
@@ -10,9 +9,9 @@ const Sidebar = () => {
   return (
     <>
       <div className="bg-gray-900  h-10 flex justify-between items-center w-screen border-b-4">
-        <Link to="#" className="ml-4 text-4xl bg-transparent">
+        <div className="ml-4 text-4xl bg-transparent">
           <FaArrowRight onClick={toggleSideBar} />
-        </Link>
+        </div>
         <h1 className={"mr-4"}>CryptoChartsPro</h1>
       </div>
       <nav
@@ -24,9 +23,9 @@ const Sidebar = () => {
       >
         <ul className="w-full">
           <li className="bg-gray-900  h-10 flex justify-between items-center border-b-4">
-            <Link to="#" className="ml-4 text-4xl bg-transparent">
+            <div className="ml-4 text-4xl bg-transparent">
               <FaArrowLeft onClick={toggleSideBar} />
-            </Link>
+            </div>
             <h1 className={"mr-4 md:hidden"}>CryptoChartsPro</h1>
           </li>
           <CoinList />
