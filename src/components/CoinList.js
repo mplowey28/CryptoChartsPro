@@ -54,6 +54,7 @@ const CoinList = () => {
         {coins.map((coin) => {
           return <Coin key={coin.id} coin={coin} />;
         })}
+        <div className="bg-black bg-opacity-20 mb-2 p-2 w-full h-8"></div>
       </ul>
     );
   };
