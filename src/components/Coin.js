@@ -19,7 +19,11 @@ const Coin = ({ coin }) => {
       </div>
       <div className="w-full text-center text-3xl">
         <NumberFormat
-          value={coin.current_price.toFixed(2)}
+          value={
+            coin.current_price < 1
+              ? coin.current_price.toFixed(6)
+              : coin.current_price.toFixed(2)
+          }
           displayType={"text"}
           thousandSeparator={true}
           prefix={"$"}

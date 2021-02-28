@@ -82,7 +82,11 @@ const Chart = ({ data }) => {
           </div>
           <div className="mb-2 py-2 bg-black bg-opacity-20 border border-gray-500 rounded shadow text-2xl flex align-center justify-center items-center md:flex-grow md:mx-1">
             <NumberFormat
-              value={detail.current_price.toFixed(2)}
+              value={
+                detail.current_price < 1
+                  ? detail.current_price.toFixed(6)
+                  : detail.current_price.toFixed(2)
+              }
               displayType={"text"}
               thousandSeparator={true}
               prefix={"$"}
@@ -102,7 +106,11 @@ const Chart = ({ data }) => {
               <IoMdArrowDropup color="rgba(16, 185, 129)" />
             )}
             <NumberFormat
-              value={detail.price_change_24h.toFixed(2)}
+              value={
+                detail.current_price < 1
+                  ? detail.price_change_24h.toFixed(6)
+                  : detail.price_change_24h.toFixed(2)
+              }
               displayType={"text"}
               thousandSeparator={true}
               prefix={"$"}

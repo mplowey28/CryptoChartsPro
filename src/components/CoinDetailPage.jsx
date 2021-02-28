@@ -17,7 +17,7 @@ const CoinDetailPage = ({ id }) => {
     return data.map((el) => {
       return {
         t: el[0],
-        y: el[1].toFixed(2),
+        y: el[1] < 1 ? el[1].toFixed(6) : el[1].toFixed(2),
       };
     });
   };
