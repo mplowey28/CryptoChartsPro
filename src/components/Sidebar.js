@@ -4,7 +4,28 @@ import CoinList from "./CoinList";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 const Sidebar = () => {
-  const { sideBar, toggleSideBar } = useContext(WatchListContext);
+  const { currency, setCurrency, sideBar, toggleSideBar } = useContext(
+    WatchListContext
+  );
+
+  const handleChange = (event) => {
+    switch (event.target.value) {
+      case "usd":
+        setCurrency({ name: "usd", symbol: "$" });
+        break;
+      case "eur":
+        setCurrency({ name: "eur", symbol: "€" });
+        break;
+      case "jpy":
+        setCurrency({ name: "jpy", symbol: "¥" });
+        break;
+      case "btc":
+        setCurrency({ name: "btc", symbol: "₿" });
+        break;
+      default:
+        setCurrency({ name: "usd", symbol: "$" });
+    }
+  };
 
   return (
     <>
@@ -12,7 +33,20 @@ const Sidebar = () => {
         <div className="ml-4 text-4xl bg-transparent">
           <FaArrowRight onClick={toggleSideBar} />
         </div>
-        <h1 className={"mr-4"}>CryptoChartsPro</h1>
+        <div className="flex flex-row">
+          <h1 className={"mr-4"}>CryptoChartsPro</h1>
+          <select
+            className="mr-2"
+            name={currency.name}
+            value={currency.name}
+            onChange={handleChange}
+          >
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+            <option value="jpy">JPY</option>
+            <option value="btc">BTC</option>
+          </select>
+        </div>
       </div>
       <nav
         className={

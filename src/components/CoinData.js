@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import NumberFormat from "react-number-format";
+import { WatchListContext } from "../context/watchListContext";
 
 const CoinData = ({ data }) => {
+  const { currency } = useContext(WatchListContext);
   const renderData = () => {
     if (data) {
       return (
@@ -13,7 +16,7 @@ const CoinData = ({ data }) => {
                   value={data.low_24h}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"$"}
+                  prefix={currency.symbol}
                 />
               </span>
             </div>
@@ -24,7 +27,7 @@ const CoinData = ({ data }) => {
                   value={data.high_24h}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"$"}
+                  prefix={currency.symbol}
                 />
               </span>
             </div>
@@ -35,7 +38,7 @@ const CoinData = ({ data }) => {
                   value={data.ath}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"$"}
+                  prefix={currency.symbol}
                 />
               </span>
             </div>
@@ -46,7 +49,7 @@ const CoinData = ({ data }) => {
                   value={data.atl}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"$"}
+                  prefix={currency.symbol}
                 />
               </span>
             </div>
@@ -93,7 +96,7 @@ const CoinData = ({ data }) => {
                 value={data.market_cap}
                 displayType={"text"}
                 thousandSeparator={true}
-                prefix={"$"}
+                prefix={currency.symbol}
               />
             </div>
           </div>

@@ -4,7 +4,7 @@ import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import { WatchListContext } from "../context/watchListContext";
 
 const Coin = ({ coin }) => {
-  const { addCoin, toggleSideBar } = useContext(WatchListContext);
+  const { addCoin, currency, toggleSideBar } = useContext(WatchListContext);
   return (
     <li
       onClick={() => {
@@ -26,7 +26,7 @@ const Coin = ({ coin }) => {
           }
           displayType={"text"}
           thousandSeparator={true}
-          prefix={"$"}
+          prefix={currency.symbol}
         />
       </div>
       <span

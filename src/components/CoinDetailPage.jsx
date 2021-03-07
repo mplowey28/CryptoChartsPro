@@ -11,7 +11,7 @@ import { IconContext } from "react-icons";
 const CoinDetailPage = ({ id }) => {
   const [coinData, setCoinData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const { deleteCoin } = useContext(WatchListContext);
+  const { currency, deleteCoin } = useContext(WatchListContext);
 
   const formatData = (data) => {
     return data.map((el) => {
@@ -37,49 +37,49 @@ const CoinDetailPage = ({ id }) => {
       ] = await Promise.all([
         base.get(`/coins/${id}/market_chart/`, {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             days: "1",
           },
         }),
         base.get(`/coins/${id}/market_chart/`, {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             days: "7",
           },
         }),
         base.get(`/coins/${id}/market_chart/`, {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             days: "31",
           },
         }),
         base.get(`/coins/${id}/market_chart/`, {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             days: "182",
           },
         }),
         base.get(`/coins/${id}/market_chart/`, {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             days: "365",
           },
         }),
         base.get(`/coins/${id}/market_chart/`, {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             days: "1825",
           },
         }),
         base.get(`/coins/${id}/market_chart/`, {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             days: "3650",
           },
         }),
         base.get("/coins/markets/", {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             ids: id,
           },
         }),
@@ -99,7 +99,7 @@ const CoinDetailPage = ({ id }) => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id, currency]);
 
   const renderData = () => {
     if (isLoading) {

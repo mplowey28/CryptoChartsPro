@@ -7,7 +7,7 @@ import Coin from "./Coin";
 import Search from "./Search";
 
 const CoinList = () => {
-  const { searchInput } = useContext(WatchListContext);
+  const { currency, searchInput } = useContext(WatchListContext);
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,7 +17,7 @@ const CoinList = () => {
       if (searchInput) {
         const response = await base.get("/coins/markets", {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
             ids: `${searchInput}`,
           },
         });
@@ -26,7 +26,7 @@ const CoinList = () => {
       } else {
         const response = await base.get("/coins/markets", {
           params: {
-            vs_currency: "usd",
+            vs_currency: `${currency.name}`,
           },
         });
         setCoins(response.data);
@@ -34,7 +34,7 @@ const CoinList = () => {
       }
     };
     fetchData();
-  }, [searchInput]);
+  }, [currency, searchInput]);
 
   const renderCoins = () => {
     if (isLoading) {

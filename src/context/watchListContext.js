@@ -6,6 +6,7 @@ export const WatchListContextProvider = (props) => {
   const [watchList, setWatchList] = useState([]);
   const [sideBar, setSideBar] = useState(true);
   const [searchInput, setSearchInput] = useState("");
+  const [currency, setCurrency] = useState({ name: "usd", symbol: "$" });
 
   const addCoin = (coin) => {
     if (!watchList.includes(coin.id)) {
@@ -22,13 +23,15 @@ export const WatchListContextProvider = (props) => {
   return (
     <WatchListContext.Provider
       value={{
-        watchList,
         addCoin,
+        currency,
         deleteCoin,
-        sideBar,
         searchInput,
+        setCurrency,
         setSearchInput,
+        sideBar,
         toggleSideBar,
+        watchList,
       }}
     >
       {props.children}

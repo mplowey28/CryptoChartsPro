@@ -6,7 +6,7 @@ import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import { WatchListContext } from "../context/watchListContext";
 
 const Chart = ({ data }) => {
-  const { sideBar } = useContext(WatchListContext);
+  const { currency, sideBar } = useContext(WatchListContext);
 
   const chartRef = useRef();
   const {
@@ -89,7 +89,7 @@ const Chart = ({ data }) => {
               }
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"$"}
+              prefix={currency.symbol}
             />
           </div>
 
@@ -113,7 +113,7 @@ const Chart = ({ data }) => {
               }
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"$"}
+              prefix={currency.symbol}
             />
             <span className="text-white ml-2"> (24h)</span>
           </span>
