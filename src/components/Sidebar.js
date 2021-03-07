@@ -35,7 +35,7 @@ const Sidebar = () => {
           <h1 className={"mr-4"}>CryptoChartsPro</h1>
           <select
             name="currency"
-            className="mr-2 bg-gray-900 "
+            className="mr-2 bg-gray-900 border border-gray-500 rounded"
             onChange={handleChange}
           >
             <option value="usd">USD</option>
