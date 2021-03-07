@@ -4,9 +4,7 @@ import CoinList from "./CoinList";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 const Sidebar = () => {
-  const { currency, setCurrency, sideBar, toggleSideBar } = useContext(
-    WatchListContext
-  );
+  const { setCurrency, sideBar, toggleSideBar } = useContext(WatchListContext);
 
   const handleChange = (event) => {
     switch (event.target.value) {
@@ -36,9 +34,8 @@ const Sidebar = () => {
         <div className="flex flex-row">
           <h1 className={"mr-4"}>CryptoChartsPro</h1>
           <select
-            className="mr-2"
-            name={currency.name}
-            value={currency.name}
+            name="currency"
+            className="mr-2 bg-gray-900 "
             onChange={handleChange}
           >
             <option value="usd">USD</option>
